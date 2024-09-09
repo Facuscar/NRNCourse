@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 
 const GoalItem = ({ goalItem, onDeleteGoal }) => {
   return (
-    <Pressable onPress={onDeleteGoal}>
+    <Pressable onPress={() => onDeleteGoal(goalItem.id)}>
       <View style={styles.goalItem}>
         <Text style={styles.goalText}>{goalItem.item.text}</Text>
       </View>

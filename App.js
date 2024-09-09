@@ -18,8 +18,10 @@ export default function App() {
     setEnteredGoalText("");
   }
 
-  const deleteGoalHandler = () => {
-
+  const deleteGoalHandler = (id) => {
+    setCourseGoals((prevGoals) => {
+      prevGoals.filter((goal) => goal.id !== id)
+    })
   }
 
   return (
