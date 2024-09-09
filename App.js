@@ -17,6 +17,7 @@ export default function App() {
   const addGoalHandler = () => {
     setCourseGoals((prevGoals) => [...prevGoals, { text: enteredGoalText, id: Math.random().toString() }])
     setEnteredGoalText("");
+    endAddGoalHandler();
   }
 
   const deleteGoalHandler = (id) => {
@@ -29,10 +30,14 @@ export default function App() {
     setIsModalOpen(true);
   }
 
+  const endAddGoalHandler = () => {
+    setIsModalOpen(false);
+  }
+
   return (
     <View style={styles.appContainer}>
       <Button title='Add New Goal' color="#5e0acc" onPress={startAddGoalHandler} />
-      <GoalInput enteredGoalText={enteredGoalText} goalInputHandler={goalInputHandler} addGoalHandler={addGoalHandler} isModalOpen={isModalOpen} />
+      <GoalInput enteredGoalText={enteredGoalText} goalInputHandler={goalInputHandler} addGoalHandler={addGoalHandler} isModalOpen={isModalOpen} endAddGoalHandler={endAddGoalHandler}  />
       <View style={styles.goalsContainer}>
         <FlatList data={courseGoals} keyExtractor={(item) => item.id} renderItem={(goal) => {
           return (
