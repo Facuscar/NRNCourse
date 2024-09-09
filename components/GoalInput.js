@@ -5,7 +5,14 @@ const GoalInput = ({ goalInputHandler, enteredGoalText, addGoalHandler, isModalO
     <Modal visible={isModalOpen} animationType="slide">
       <View style={styles.inputContainer}>
         <TextInput placeholder='Your course goal!' style={styles.textInput} onChangeText={goalInputHandler} value={enteredGoalText} />
-        <Button title='Add goal' onPress={addGoalHandler} />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button title='Add goal' onPress={addGoalHandler} />
+          </View>
+          <View style={styles.button}>
+            <Button title="Cancel" />
+          </View>
+        </View>
       </View>
     </Modal>
    )
@@ -15,8 +22,7 @@ export default GoalInput
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: "row",
-    justifyContent: 'space-between',
+    justifyContent: "center",
     alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
@@ -26,8 +32,16 @@ const styles = StyleSheet.create({
   textInput: {
     borderWidth: 1,
     borderColor: "#cccccc",
-    width: "70%",
+    width: "90%",
     marginRight: 8,
     padding: 8,
   },
+  buttonContainer: {
+    marginTop: 16,
+    flexDirection: 'row',
+  },
+  button: {
+    width: "30%",
+    marginHorizontal: 8,
+  }
 })
